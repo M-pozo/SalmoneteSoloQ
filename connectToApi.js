@@ -7,13 +7,17 @@ const participantes = [
   'AmqfQquQ4WLqfKNPr7CGx_RbX66_OfklGbw0i2bQ-wleKiHJ',
   'BNw9fVN6QMd0jR6DpdipWKgJZCc_-1qKl3l_gX1sdvALqXU',
   'kllZCAiVxG-9XLCj74j6nSxYZD4XkcGjjpEpF_NXop6osKOh',
+  'qNs8UbyWy0KTKjbwciIqgbqNL3mACGHhf-nlHse3nUTi5Kqj',
+  'zNLNuvnFxbqoPVKGWfdPQNieLkzo87vIBnRAh9pLK9GoMXw',
+  'iwm0KpRPtbPQQCSZBm8LATzdzKT34nZ85h04bf_QG19HdkU',
+  'QZ8IpaSCrst3ayAj07fWJf-O_Un1LmJ4DlSk1O34bv6QAxM'
 ];
 
 // Valor por defecto para el orden
 let ordenSeleccionado = 'ascendente';
 
 // Clave de la API de Riot
-const key = 'RGAPI-89987f29-1a38-4988-a434-1eaad3bb3e06';
+const key = 'RGAPI-9878d892-6c70-4dab-9704-000ecf0bfcc5';
 
 // Función para obtener los datos de un participante
 async function obtenerDatosParticipante(participante) {
@@ -62,12 +66,12 @@ async function generarTabla(orden) {
       const fila = tablaParticipantes.insertRow();
       fila.innerHTML = `
         <td>${participante.summonerName}</td>
-        <td>${participante.inactive ? 'Inactivo' : 'Activo'}</td>
-        <td>${participante.tier} ${participante.rank}</td>
-        <td>${participante.leaguePoints}</td>
+        <td><img src="img/posicion/${participante.summonerName}.png" style="width: 30px; height: 30px;"/></td>
+        <td><img src="img/elo/${participante.tier}${participante.rank}.png" style="width: 30px; height: 30px;"/> ${participante.tier} ${participante.rank}</td>
+        <td><font>${participante.leaguePoints}</font> LP</td>
         <td>${participante.wins + participante.losses}</td>
-        <td>${participante.wins}</td>
-        <td>${participante.losses}</td>
+        <td><font color="green">${participante.wins}</font></td>
+        <td><font color="red">${participante.losses}</font></td>
         <td>${((participante.wins * 100) / (participante.wins + participante.losses)).toFixed(0)}%</td>
         <td><a href="https://www.op.gg/summoners/euw/${participante.summonerName}" target="_blank">opgg</a></td>
       `;
@@ -136,8 +140,3 @@ contenedorOrden.appendChild(ordenSelect);
 
 // Generar la tabla inicial
 generarTabla(ordenSeleccionado);
-
-
-
-
-

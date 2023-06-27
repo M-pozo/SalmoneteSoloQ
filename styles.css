@@ -1,48 +1,159 @@
 /* Estilos generales */
 
+@font-face {
+  font-family: Semakin;
+  src: url(img/fuente/Semakin.otf);
+}
 body {
-    font-family: Arial, sans-serif;
-    background-color: #222;
-    color: #fff;
-    padding: 20px;
+  font-family: Semakin;
+  background-color: #222;
+  color: #fff;
+  padding: 20px;
+}
+
+/* Estilos de la tabla */
+
+#tablaParticipantes {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  position: relative;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Agregado */
+  border-radius: 5px; /* Agregado */
+}
+
+#tablaParticipantes th {
+  letter-spacing: 2px;
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  text-align: left;
+}
+
+#tablaParticipantes td {
+  background-color: #444;
+  padding: 10px;
+}
+
+#tablaParticipantes tr {
+  background-color: #555;
+  opacity: 0;
+  animation: aparecer 0.5s ease-in-out; /* Aplica la animación a cada fila par */
+  animation-fill-mode: forwards; /* Mantiene la opacidad en 1 después de la animación */
+  animation-delay: calc(0.3s * (var(--index) + 1)); /* Retrasa la animación de cada fila */
+}
+
+@keyframes aparecer {
+  0% {
+    opacity: 0;
   }
-  
-  h1 {
-    color: #fff;
+  100% {
+    opacity: 1;
   }
-  
-  /* Estilos de la tabla */
-  
-  #tablaParticipantes {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
+}
+
+#tablaParticipantes a {
+  color: #00acee;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+#rgb {
+  padding: 5px;
+  margin-bottom: 20px;
+  position: relative; /* Agregado para que el efecto degradado se ajuste correctamente */
+}
+
+#rgb::before,
+#rgb::after {
+  content: '';
+  position: absolute;
+  background: linear-gradient(
+    45deg,
+    #ffffff,
+    #ffffff,
+    #ffffff,
+    #cccccc,
+    #cccccc,
+    #999999,
+    #999999,
+    #666666,
+    #666666,
+    #333333,
+    #333333,
+    #000000,
+    #000000,
+    #000000,
+    #000000,
+    #333333,
+    #333333,
+    #666666,
+    #666666,
+    #999999,
+    #999999,
+    #cccccc,
+    #cccccc,
+    #ffffff,
+    #ffffff,
+    #ffffff
+  );
+  background-size: 400%;
+  width: calc(100% + 0px); /* Ajusta el ancho del degradado al tamaño del padding más 10px */
+  height: calc(100% + -20px); /* Ajusta la altura del degradado al tamaño del padding más 10px */
+  top: 20px; /* Ajusta la posición superior para que el degradado esté centrado */
+  left: 0px; /* Ajusta la posición izquierda para que el degradado esté centrado */
+  z-index: -1;
+  animation: animate 160s linear infinite;
+}
+
+@keyframes animate {
+  0% {
+    background-position: 0 0;
   }
-  
-  #tablaParticipantes th {
-    background-color: #333;
-    color: #fff;
-    padding: 10px;
-    text-align: left;
+  50% {
+    background-position: 400% 0;
   }
-  
-  #tablaParticipantes td {
-    background-color: #444;
-    padding: 10px;
-  }
-  
-  #tablaParticipantes tr:nth-child(even) {
-    background-color: #555;
-  }
-  
-  #tablaParticipantes a {
-    color: #00acee;
-    text-decoration: none;
-    text-transform: uppercase;
-    font-weight: bold;
-  }
-  
-  
-  
-  
-  
+}
+
+footer{
+  border-style: solid;
+  border-color: rgba(110, 110, 110, 0.521);
+  border-width: 2px 0px 0px 0px;
+}
+footer h1{
+  text-align: left;
+  margin: 10px;
+  margin-bottom: 30px;
+}
+
+footer div a{
+  text-decoration: none;
+  padding: 0;
+}
+footer img{
+  margin: 5px;
+  width: 30px;
+  height: 30px;
+}
+#twitch{
+  margin: 5px;
+  width: 40px;
+  height: 40px;
+}
+#twitter{
+  margin: 5px;
+  width: 40px;
+  height: 35px;
+}
+#youtube{
+  margin: 5px;
+  width: 40px;
+  height: 40px;
+}
+#tiktok{
+  margin: 5px;
+  width: 60px;
+  height: 40px;
+}
+
