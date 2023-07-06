@@ -10,14 +10,23 @@ const participantes = [
   'qNs8UbyWy0KTKjbwciIqgbqNL3mACGHhf-nlHse3nUTi5Kqj',
   'zNLNuvnFxbqoPVKGWfdPQNieLkzo87vIBnRAh9pLK9GoMXw',
   'iwm0KpRPtbPQQCSZBm8LATzdzKT34nZ85h04bf_QG19HdkU',
-  'QZ8IpaSCrst3ayAj07fWJf-O_Un1LmJ4DlSk1O34bv6QAxM'
+  'QZ8IpaSCrst3ayAj07fWJf-O_Un1LmJ4DlSk1O34bv6QAxM',
+  'lvu5g-8eUhcDZqoH8M2HhtS6HlRy2fglYYgC5aY6tQmOPrenA6N3lNj3Tw',
+  'u_jUdgjUon8qmoNC5LHJARhEY4jwYGv82dsqpBFIbOFjW6TxkBOgfcmN7Q',
+  'OyMh80BrEUdzI7t_TjVDl7bQCY04ZNPVN05hgy6RMQaW9Rw',
+  'OxbgP84fcWdfPGLMdMGjFIR1zL90bARSg0GpSAkzeLMHRvY',
+  'LPkfX5IlsHyJ8lHN3ZkC2qdQM_N9wdY9bWLUQ_bLTLn8gUM',
+  '_Wz7W2ylKuCH0Lwpx2CgRnvURVepz6nlidzTKtArfNKKT-M',
+  'Q92MY2imzhNMsOHhkbGUOwRVZ8kpZwn6IjAbFJc1k_Qw1hk',
+  '_qxJ8twjqXgor4DNZXwrFFfRQrMHCoUaNBaOy8LWQDC87dQ',
+  'Pxj8wk-DX7ZkSs4Gak1frllaEfPIYpfhUp8JjcQuw46pgsqf'
 ];
 
 // Valor por defecto para el orden
 let ordenSeleccionado = 'ascendente';
 
 // Clave de la API de Riot
-const key = 'RGAPI-9878d892-6c70-4dab-9704-000ecf0bfcc5';
+const key = 'RGAPI-593f50a7-01ab-4808-b88c-7c0dd33c5962';
 
 // Función para obtener los datos de un participante
 async function obtenerDatosParticipante(participante) {
@@ -30,8 +39,10 @@ async function obtenerDatosParticipante(participante) {
       if (conec.status >= 200 && conec.status < 400) {
         const datos = JSON.parse(this.response);
         const participanteOrdenado = datos.find(entry => entry.queueType === 'RANKED_SOLO_5x5');
+        ultimaConsulta = link;
         resolve(participanteOrdenado);
       } else {
+        ultimaConsulta = link ;
         reject(new Error(`Ha ocurrido un error: ${conec.status} ${conec.statusText}`));
       }
     });
@@ -44,7 +55,8 @@ async function obtenerDatosParticipante(participante) {
 // Función para generar la tabla con el orden seleccionado
 async function generarTabla(orden) {
   const tablaParticipantes = document.getElementById('tablaParticipantes').getElementsByTagName('tbody')[0];
-  tablaParticipantes.innerHTML = ''; // Limpiar contenido anterior
+   // Limpiar contenido anterior
+   tablaParticipantes.innerHTML = '';
 
   try {
     // Obtener los datos de todos los participantes
@@ -62,11 +74,13 @@ async function generarTabla(orden) {
     }
 
     // Agregar las filas a la tabla en el nuevo orden
+    let contador = 1;
     participantesOrdenados.forEach(participante => {
       const fila = tablaParticipantes.insertRow();
-      fila.innerHTML = `
-        <td>${participante.summonerName}</td>
-        <td><img src="img/posicion/${participante.summonerName}.png" style="width: 30px; height: 30px;"/></td>
+      if (participante.summonerName === "winstars") {
+        fila.innerHTML =`
+        <td><a id="martin" href="https://www.youtube.com/shorts/bJ-dFVQBN9Q" target="_blank">${contador++}. ${participante.summonerName}</a></td>
+        <td><img src="img/usuario/${participante.summonerName}.png" style="width: 30px; height: 30px;"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="img/posicion/${participante.summonerName}.png" style="width: 30px; height: 30px;"/></td>
         <td><img src="img/elo/${participante.tier}${participante.rank}.png" style="width: 30px; height: 30px;"/> ${participante.tier} ${participante.rank}</td>
         <td><font>${participante.leaguePoints}</font> LP</td>
         <td>${participante.wins + participante.losses}</td>
@@ -75,6 +89,19 @@ async function generarTabla(orden) {
         <td>${((participante.wins * 100) / (participante.wins + participante.losses)).toFixed(0)}%</td>
         <td><a href="https://www.op.gg/summoners/euw/${participante.summonerName}" target="_blank">opgg</a></td>
       `;
+      }else{
+        fila.innerHTML =`
+        <td>${contador++}. ${participante.summonerName}</td>
+        <td><img src="img/usuario/${participante.summonerName}.png" style="width: 30px; height: 30px;"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="img/posicion/${participante.summonerName}.png" style="width: 30px; height: 30px;"/></td>
+        <td><img src="img/elo/${participante.tier}${participante.rank}.png" style="width: 30px; height: 30px;"/> ${participante.tier} ${participante.rank}</td>
+        <td><font>${participante.leaguePoints}</font> LP</td>
+        <td>${participante.wins + participante.losses}</td>
+        <td><font color="green">${participante.wins}</font></td>
+        <td><font color="red">${participante.losses}</font></td>
+        <td>${((participante.wins * 100) / (participante.wins + participante.losses)).toFixed(0)}%</td>
+        <td><a href="https://www.op.gg/summoners/euw/${participante.summonerName}" target="_blank">opgg</a></td>
+      `;
+      }
     });
   } catch (error) {
     console.log(error);
@@ -96,7 +123,7 @@ function compararParticipantes(a, b) {
 // Función para comparar dos rangos
 function compararRangos(a, b) {
   const ordenRango = [
-    'CHALLENGER', 'GRANDMASTER', 'MASTER',
+    'CHALLENGER I', 'GRANDMASTER I', 'MASTER I',
     'DIAMOND I', 'DIAMOND II', 'DIAMOND III', 'DIAMOND IV',
     'PLATINUM I', 'PLATINUM II', 'PLATINUM III', 'PLATINUM IV',
     'GOLD I', 'GOLD II', 'GOLD III', 'GOLD IV',

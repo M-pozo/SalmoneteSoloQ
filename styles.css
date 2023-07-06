@@ -52,12 +52,22 @@ body {
   }
 }
 
-#tablaParticipantes a {
+#tablaParticipantes a:not(#martin) {
   color: #00acee;
   text-decoration: none;
   text-transform: uppercase;
   font-weight: bold;
 }
+#martin,
+#martin:visited {
+  color: white;
+  text-decoration: none;
+}
+
+#martin:hover {
+  text-decoration: none;
+}
+
 
 #rgb {
   padding: 5px;
@@ -156,4 +166,3 @@ footer img{
   width: 60px;
   height: 40px;
 }
-
