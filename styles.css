@@ -6,9 +6,9 @@
 }
 body {
   font-family: Semakin;
-  background-color: #222;
   color: #fff;
-  padding: 20px;
+  background: #222;
+  text-rendering: optimizeLegibility;
 }
 
 /* Estilos de la tabla */
@@ -166,3 +166,18 @@ footer img{
   width: 60px;
   height: 40px;
 }
+
+select {
+  color: var(--form-text);
+  background-color: #222;
+  
+  font-family: inherit;
+  font-size: inherit;
+  margin-right: 6px;
+  margin-bottom: 6px;
+  padding: 5px;
+  border: none;
+  border-radius: 1px;
+  outline: none;
+}
+
