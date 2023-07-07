@@ -26,7 +26,7 @@ const participantes = [
 let ordenSeleccionado = 'ascendente';
 
 // Clave de la API de Riot
-const key = 'RGAPI-26deb5f6-b392-4195-8e22-b07abe666813';
+const key = 'RGAPI-4e124999-6402-4f8d-9feb-8c52b85f6d64';
 
 // Función para obtener los datos de un participante
 async function obtenerDatosParticipante(participante) {
