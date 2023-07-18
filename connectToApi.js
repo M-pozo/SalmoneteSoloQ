@@ -3,7 +3,8 @@ const participantes = [
   'z4tizn8FKl_bZHhg515w50lB8FJaw-v563thdvYUKaEY3nbbr-JaJ61o_g', //Camaron Es Payo
   '2ofONtAVY8MXavuXSYbSRDVjO_UYTm9DSeCB_mIPUMiioUsrHd7H7mxvSA', //CokMarioCok
   'IsXmN3liQ9YQw_--VN-_vk97TqESnnnebXL9TaWiOeRg2xZ2zDJkMysrwg', //Biyín88
-  'F-5b6ZFPAPUQYI3WibmQhoZzv_l0WWxBK2c-LXXH4nvI0LiNTXG0ynVMGQ' //Nampa de Matola
+  'F-5b6ZFPAPUQYI3WibmQhoZzv_l0WWxBK2c-LXXH4nvI0LiNTXG0ynVMGQ', //Nampa de Matola
+  '6Q7bSGyBnzlmIcuH10LXDbRLZ67PeOlLtJBvzHqDfWlUu8vca3cYSquWDA' //Seca Bragas
 ];
 
 // Valor por defecto para el orden
@@ -61,7 +62,7 @@ async function generarTabla(orden) {
     let contador = 1;
     participantesOrdenados.forEach(participante => {
       const fila = tablaParticipantes.insertRow();
-      if (participante.summonerName === "winstars") {
+      if (participante.summonerName === "Nampa de Matola") {
         fila.innerHTML =`
         <td><a id="martin" href="https://www.youtube.com/shorts/bJ-dFVQBN9Q" target="_blank">${contador++}. ${participante.summonerName}</a></td>
         <td><img src="img/usuario/${participante.summonerName}.png" style="width: 30px; height: 30px;"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="img/posicion/${participante.summonerName}.png" style="width: 30px; height: 30px;"/></td>
