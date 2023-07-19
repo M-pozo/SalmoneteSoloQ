@@ -7,7 +7,8 @@ const participantes = [
   '6Q7bSGyBnzlmIcuH10LXDbRLZ67PeOlLtJBvzHqDfWlUu8vca3cYSquWDA', //Seca Bragas
   'fnkaPuiCJiKnyoGuQusmTdkXGKhyvkEFVrpTJYoNaqKiWUg', //CØVΣS
   '9ZIRr47UG8qIlYsoWTXnkhjw116l5j4v_YT1n2dX1eCaqrbxPjGWwydbGg', //John Cobra 88
-  'huJR-495PKHeCeLcIqI9lT1Roy0VTwWWaWwAokVoSZX4YhdIWZjkU2oX7A' //ShineGang
+  'huJR-495PKHeCeLcIqI9lT1Roy0VTwWWaWwAokVoSZX4YhdIWZjkU2oX7A', //ShineGang
+  'zlSMd_xkgn5G5vYi8SlY7HeHdtjaKWJZIknKfSeekWfIgl7iFZhRV_MpWA' //EvelynnToilet
 ];
 
 // Valor por defecto para el orden
