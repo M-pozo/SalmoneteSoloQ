@@ -8,7 +8,8 @@ const participantes = [
   'fnkaPuiCJiKnyoGuQusmTdkXGKhyvkEFVrpTJYoNaqKiWUg', //CØVΣS
   '9ZIRr47UG8qIlYsoWTXnkhjw116l5j4v_YT1n2dX1eCaqrbxPjGWwydbGg', //John Cobra 88
   'huJR-495PKHeCeLcIqI9lT1Roy0VTwWWaWwAokVoSZX4YhdIWZjkU2oX7A', //ShineGang
-  'zlSMd_xkgn5G5vYi8SlY7HeHdtjaKWJZIknKfSeekWfIgl7iFZhRV_MpWA' //EvelynnToilet
+  'zlSMd_xkgn5G5vYi8SlY7HeHdtjaKWJZIknKfSeekWfIgl7iFZhRV_MpWA', //EvelynnToilet
+  '6LEmPnkaBoIqL7vOGxHuB4cKcpOIOTB7c9xehdknbyKw0PRLaN9RXaU9Fg' //Elashaellituy
 ];
 
 // Valor por defecto para el orden
@@ -127,6 +128,7 @@ function compararRangos(a, b) {
   const ordenRango = [
     'CHALLENGER I', 'GRANDMASTER I', 'MASTER I',
     'DIAMOND I', 'DIAMOND II', 'DIAMOND III', 'DIAMOND IV',
+    'EMERAL I', 'EMERAL II', 'EMERAL III', 'EMERAL IV',
     'PLATINUM I', 'PLATINUM II', 'PLATINUM III', 'PLATINUM IV',
     'GOLD I', 'GOLD II', 'GOLD III', 'GOLD IV',
     'SILVER I', 'SILVER II', 'SILVER III', 'SILVER IV',
