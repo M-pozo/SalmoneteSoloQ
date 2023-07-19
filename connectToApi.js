@@ -94,7 +94,6 @@ async function generarTabla(orden) {
       }else{
         fila.innerHTML =`
         <td>${contador++}. ${participante.summonerName}</td>
-        <td><a id="martin" href="https://www.tiktok.com/@billkilgore_/video/7197052386479918342" target="_blank">${contador++}. ${participante.summonerName}</a></td>
         <td><img src="img/usuario/${participante.summonerName}.png" style="width: 30px; height: 30px;"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="img/posicion/${participante.summonerName}.png" style="width: 30px; height: 30px;"/></td>
         <td><img src="img/elo/${participante.tier}${participante.rank}.png" style="width: 30px; height: 30px;"/> ${participante.tier} ${participante.rank}</td>
         <td><font>${participante.leaguePoints}</font> LP</td>
