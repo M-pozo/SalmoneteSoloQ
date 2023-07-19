@@ -4,7 +4,9 @@ const participantes = [
   '2ofONtAVY8MXavuXSYbSRDVjO_UYTm9DSeCB_mIPUMiioUsrHd7H7mxvSA', //CokMarioCok
   'IsXmN3liQ9YQw_--VN-_vk97TqESnnnebXL9TaWiOeRg2xZ2zDJkMysrwg', //Biyín88
   'F-5b6ZFPAPUQYI3WibmQhoZzv_l0WWxBK2c-LXXH4nvI0LiNTXG0ynVMGQ', //Nampa de Matola
-  '6Q7bSGyBnzlmIcuH10LXDbRLZ67PeOlLtJBvzHqDfWlUu8vca3cYSquWDA' //Seca Bragas
+  '6Q7bSGyBnzlmIcuH10LXDbRLZ67PeOlLtJBvzHqDfWlUu8vca3cYSquWDA', //Seca Bragas
+  'fnkaPuiCJiKnyoGuQusmTdkXGKhyvkEFVrpTJYoNaqKiWUg', //CØVΣS
+  '9ZIRr47UG8qIlYsoWTXnkhjw116l5j4v_YT1n2dX1eCaqrbxPjGWwydbGg' //John Cobra 88
 ];
 
 // Valor por defecto para el orden
@@ -59,6 +61,7 @@ async function generarTabla(orden) {
     }
 
     // Agregar las filas a la tabla en el nuevo orden
+    //https://www.tiktok.com/@billkilgore_/video/7197052386479918342
     let contador = 1;
     participantesOrdenados.forEach(participante => {
       const fila = tablaParticipantes.insertRow();
@@ -74,9 +77,22 @@ async function generarTabla(orden) {
         <td>${((participante.wins * 100) / (participante.wins + participante.losses)).toFixed(0)}%</td>
         <td><a href="https://www.op.gg/summoners/euw/${participante.summonerName}" target="_blank">opgg</a></td>
       `;
+      }if (participante.summonerName === "Biyín88"){
+        fila.innerHTML =`
+        <td><a id="martin" href="https://www.tiktok.com/@billkilgore_/video/7197052386479918342" target="_blank">${contador++}. ${participante.summonerName}</a></td>
+        <td><img src="img/usuario/${participante.summonerName}.png" style="width: 30px; height: 30px;"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="img/posicion/${participante.summonerName}.png" style="width: 30px; height: 30px;"/></td>
+        <td><img src="img/elo/${participante.tier}${participante.rank}.png" style="width: 30px; height: 30px;"/> ${participante.tier} ${participante.rank}</td>
+        <td><font>${participante.leaguePoints}</font> LP</td>
+        <td>${participante.wins + participante.losses}</td>
+        <td><font color="green">${participante.wins}</font></td>
+        <td><font color="red">${participante.losses}</font></td>
+        <td>${((participante.wins * 100) / (participante.wins + participante.losses)).toFixed(0)}%</td>
+        <td><a href="https://www.op.gg/summoners/euw/${participante.summonerName}" target="_blank">opgg</a></td>
+      `;
       }else{
         fila.innerHTML =`
         <td>${contador++}. ${participante.summonerName}</td>
+        <td><a id="martin" href="https://www.tiktok.com/@billkilgore_/video/7197052386479918342" target="_blank">${contador++}. ${participante.summonerName}</a></td>
         <td><img src="img/usuario/${participante.summonerName}.png" style="width: 30px; height: 30px;"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="img/posicion/${participante.summonerName}.png" style="width: 30px; height: 30px;"/></td>
         <td><img src="img/elo/${participante.tier}${participante.rank}.png" style="width: 30px; height: 30px;"/> ${participante.tier} ${participante.rank}</td>
         <td><font>${participante.leaguePoints}</font> LP</td>
