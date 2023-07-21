@@ -6,7 +6,7 @@ const participantes = [
   'F-5b6ZFPAPUQYI3WibmQhoZzv_l0WWxBK2c-LXXH4nvI0LiNTXG0ynVMGQ', //Nampa de Matola
   '6Q7bSGyBnzlmIcuH10LXDbRLZ67PeOlLtJBvzHqDfWlUu8vca3cYSquWDA', //Seca Bragas
   'fnkaPuiCJiKnyoGuQusmTdkXGKhyvkEFVrpTJYoNaqKiWUg', //CØVΣS
-  //'9ZIRr47UG8qIlYsoWTXnkhjw116l5j4v_YT1n2dX1eCaqrbxPjGWwydbGg', //John Cobra 88
+  '9ZIRr47UG8qIlYsoWTXnkhjw116l5j4v_YT1n2dX1eCaqrbxPjGWwydbGg', //John Cobra 88
   'huJR-495PKHeCeLcIqI9lT1Roy0VTwWWaWwAokVoSZX4YhdIWZjkU2oX7A', //ShineGang
   'zlSMd_xkgn5G5vYi8SlY7HeHdtjaKWJZIknKfSeekWfIgl7iFZhRV_MpWA', //EvelynnToilet
   '6LEmPnkaBoIqL7vOGxHuB4cKcpOIOTB7c9xehdknbyKw0PRLaN9RXaU9Fg', //Elashaellituy
@@ -66,10 +66,11 @@ async function generarTabla(orden) {
 
     // Agregar las filas a la tabla en el nuevo orden
     //https://www.tiktok.com/@billkilgore_/video/7197052386479918342
+    //https://www.youtube.com/shorts/bJ-dFVQBN9Q
     let contador = 1;
     participantesOrdenados.forEach(participante => {
       const fila = tablaParticipantes.insertRow();
-      if (participante.summonerName === "Nampa de Matola") {
+      if (participante.summonerName === "Nampa&nbspde&nbspMatola") {
         fila.innerHTML =`
         <td><a id="martin" href="https://www.youtube.com/shorts/bJ-dFVQBN9Q" target="_blank">${contador++}. ${participante.summonerName}</a></td>
         <td><img src="img/usuario/${participante.summonerName}.png" style="width: 30px; height: 30px;"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="img/posicion/${participante.summonerName}.png" style="width: 30px; height: 30px;"/></td>
