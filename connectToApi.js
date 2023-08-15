@@ -13,7 +13,9 @@ const participantes = [
   'qc4bew51P1ueV29M6ZOnbl2AKcMdpexY3WG548HtbW-vS61w9WX0bUK6mg', //Riustickyley
   'HN7pFPpYKEsC5V9LlejUu1B6DujyLfYO7TZXrbPe_kD0cOoh7uKAwSYvhw', //11S Pilot
   'xF543PkQ9oO2QmOuMbGkoFln7KfzFc7ozMGTnXJbvwX4UzDjLAWrQjxEIA', //G59 Filthy Bones
-  'PPqgID2FZbs209HgtxZhlsQ4KL3Qji5hNo3d1MagJEFjSKxbwFzpikytoQ' //Taerpoyuo v2
+  'PPqgID2FZbs209HgtxZhlsQ4KL3Qji5hNo3d1MagJEFjSKxbwFzpikytoQ', //Taerpoyuo v2
+  'ts5fc5Fr5xGKBY2uB8uVNxyMTfkiZ5DnsXxx_wlH5G7dusL2', //HΣXΔ
+  'XGKStS3pdOzv-SuLOT-El_P3aCS6F4p29Fyv28Qmps_3BORDwPBkJzOjWA' //LOL gigolo
 ];
 
 // Valor por defecto para el orden
