@@ -9,7 +9,6 @@ const participantes = [
   '9ZIRr47UG8qIlYsoWTXnkhjw116l5j4v_YT1n2dX1eCaqrbxPjGWwydbGg', //John Cobra 88
   'huJR-495PKHeCeLcIqI9lT1Roy0VTwWWaWwAokVoSZX4YhdIWZjkU2oX7A', //ShineGang
   'zlSMd_xkgn5G5vYi8SlY7HeHdtjaKWJZIknKfSeekWfIgl7iFZhRV_MpWA', //EvelynnToilet
-  '6LEmPnkaBoIqL7vOGxHuB4cKcpOIOTB7c9xehdknbyKw0PRLaN9RXaU9Fg', //Elashaellituy
   'qc4bew51P1ueV29M6ZOnbl2AKcMdpexY3WG548HtbW-vS61w9WX0bUK6mg', //Riustickyley
   'HN7pFPpYKEsC5V9LlejUu1B6DujyLfYO7TZXrbPe_kD0cOoh7uKAwSYvhw', //11S Pilot
   'xF543PkQ9oO2QmOuMbGkoFln7KfzFc7ozMGTnXJbvwX4UzDjLAWrQjxEIA', //G59 Filthy Bones
