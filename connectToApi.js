@@ -14,7 +14,8 @@ const participantes = [
   'xF543PkQ9oO2QmOuMbGkoFln7KfzFc7ozMGTnXJbvwX4UzDjLAWrQjxEIA', //G59 Filthy Bones
   'PPqgID2FZbs209HgtxZhlsQ4KL3Qji5hNo3d1MagJEFjSKxbwFzpikytoQ', //Taerpoyuo v2
   'ts5fc5Fr5xGKBY2uB8uVNxyMTfkiZ5DnsXxx_wlH5G7dusL2', //HΣXΔ
-  'XGKStS3pdOzv-SuLOT-El_P3aCS6F4p29Fyv28Qmps_3BORDwPBkJzOjWA' //LOL gigolo
+  'XGKStS3pdOzv-SuLOT-El_P3aCS6F4p29Fyv28Qmps_3BORDwPBkJzOjWA', //LOL gigolo
+  'HI8RfshGatLnazB-uY5Ig6kv1ckDzKxd01GeY4CIQn4eluI'//xCrimOr
 ];
 
 // Valor por defecto para el orden
@@ -134,7 +135,7 @@ function compararRangos(a, b) {
   const ordenRango = [
     'CHALLENGER I', 'GRANDMASTER I', 'MASTER I',
     'DIAMOND I', 'DIAMOND II', 'DIAMOND III', 'DIAMOND IV',
-    'EMERAL I', 'EMERAL II', 'EMERAL III', 'EMERAL IV',
+    'EMERALD I', 'EMERALD II', 'EMERALD III', 'EMERALD IV',
     'PLATINUM I', 'PLATINUM II', 'PLATINUM III', 'PLATINUM IV',
     'GOLD I', 'GOLD II', 'GOLD III', 'GOLD IV',
     'SILVER I', 'SILVER II', 'SILVER III', 'SILVER IV',
