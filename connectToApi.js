@@ -1,8 +1,6 @@
 // Array de participantes
 const participantes = [
   'z4tizn8FKl_bZHhg515w50lB8FJaw-v563thdvYUKaEY3nbbr-JaJ61o_g', //Camaron Es Payo
-  '2ofONtAVY8MXavuXSYbSRDVjO_UYTm9DSeCB_mIPUMiioUsrHd7H7mxvSA', //CokMarioCok
-  'IsXmN3liQ9YQw_--VN-_vk97TqESnnnebXL9TaWiOeRg2xZ2zDJkMysrwg', //Biyín88
   'F-5b6ZFPAPUQYI3WibmQhoZzv_l0WWxBK2c-LXXH4nvI0LiNTXG0ynVMGQ', //Nampa de Matola
   '6Q7bSGyBnzlmIcuH10LXDbRLZ67PeOlLtJBvzHqDfWlUu8vca3cYSquWDA', //Seca Bragas
   'fnkaPuiCJiKnyoGuQusmTdkXGKhyvkEFVrpTJYoNaqKiWUg', //CØVΣS
@@ -10,18 +8,18 @@ const participantes = [
   'huJR-495PKHeCeLcIqI9lT1Roy0VTwWWaWwAokVoSZX4YhdIWZjkU2oX7A', //ShineGang
   'zlSMd_xkgn5G5vYi8SlY7HeHdtjaKWJZIknKfSeekWfIgl7iFZhRV_MpWA', //EvelynnToilet
   'qc4bew51P1ueV29M6ZOnbl2AKcMdpexY3WG548HtbW-vS61w9WX0bUK6mg', //Riustickyley
-  'HN7pFPpYKEsC5V9LlejUu1B6DujyLfYO7TZXrbPe_kD0cOoh7uKAwSYvhw', //11S Pilot
-  'xF543PkQ9oO2QmOuMbGkoFln7KfzFc7ozMGTnXJbvwX4UzDjLAWrQjxEIA', //G59 Filthy Bones
-  'PPqgID2FZbs209HgtxZhlsQ4KL3Qji5hNo3d1MagJEFjSKxbwFzpikytoQ', //Taerpoyuo v2
   'ts5fc5Fr5xGKBY2uB8uVNxyMTfkiZ5DnsXxx_wlH5G7dusL2', //HΣXΔ
   'XGKStS3pdOzv-SuLOT-El_P3aCS6F4p29Fyv28Qmps_3BORDwPBkJzOjWA', //LOL gigolo
-  'HI8RfshGatLnazB-uY5Ig6kv1ckDzKxd01GeY4CIQn4eluI'//xCrimOr
+  'HI8RfshGatLnazB-uY5Ig6kv1ckDzKxd01GeY4CIQn4eluI',//xCrimOr
+  'oSFJOrPOD1KjETJr06kvrFyqNg2AJb5btrwQ6n-eAcIDErBL',//Crimor
+  'BU3E8F7cR4LI30HYMBCn0-RKFeP0l0nzXICfaJ4VB0GxNn4',//CouMarioGo
+  'eX-dwDUmOEtpCpIeJDJgKg6kvZCkHj3xh5FrSzoJ_jvYJfX5i9Lb1rP7WQ' //Churumbe Es Payo
 ];
 
 // Valor por defecto para el orden
 let ordenSeleccionado = 'ascendente';
 
-// Clave de la API de Riot
+
 const key = 'RGAPI-ec03262a-c32c-456f-b49e-92d6898035ff';
 
 // Función para obtener los datos de un participante
