@@ -12,7 +12,9 @@ const participantes = [
   'HI8RfshGatLnazB-uY5Ig6kv1ckDzKxd01GeY4CIQn4eluI',//xCrimOr
   'oSFJOrPOD1KjETJr06kvrFyqNg2AJb5btrwQ6n-eAcIDErBL',//Crimor
   'BU3E8F7cR4LI30HYMBCn0-RKFeP0l0nzXICfaJ4VB0GxNn4',//CouMarioGo
-  'eX-dwDUmOEtpCpIeJDJgKg6kvZCkHj3xh5FrSzoJ_jvYJfX5i9Lb1rP7WQ' //Churumbe Es Payo
+  'eX-dwDUmOEtpCpIeJDJgKg6kvZCkHj3xh5FrSzoJ_jvYJfX5i9Lb1rP7WQ', //Churumbe Es Payo
+  'mLZY5DscD2QxR5ZZ85F7xdOovHJCo1e2yfrXttP4Adi-sJo',// El jose breton
+  'Ku8BbEpH0UtPvE3HpGt7iWn85ymicq9sAMRIfOnA99CjEPM'//Ukranian Egirl
 ];
 
 // Valor por defecto para el orden
