@@ -8,7 +8,6 @@ const participantes = [
   'zlSMd_xkgn5G5vYi8SlY7HeHdtjaKWJZIknKfSeekWfIgl7iFZhRV_MpWA', //EvelynnToilet
   'qc4bew51P1ueV29M6ZOnbl2AKcMdpexY3WG548HtbW-vS61w9WX0bUK6mg', //Riustickyley
   'ts5fc5Fr5xGKBY2uB8uVNxyMTfkiZ5DnsXxx_wlH5G7dusL2', //HΣXΔ
-  'XGKStS3pdOzv-SuLOT-El_P3aCS6F4p29Fyv28Qmps_3BORDwPBkJzOjWA', //LOL gigolo
   'HI8RfshGatLnazB-uY5Ig6kv1ckDzKxd01GeY4CIQn4eluI',//xCrimOr
   'oSFJOrPOD1KjETJr06kvrFyqNg2AJb5btrwQ6n-eAcIDErBL',//Crimor
   'BU3E8F7cR4LI30HYMBCn0-RKFeP0l0nzXICfaJ4VB0GxNn4',//CouMarioGo
