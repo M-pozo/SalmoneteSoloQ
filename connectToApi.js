@@ -13,7 +13,9 @@ const participantes = [
   'BU3E8F7cR4LI30HYMBCn0-RKFeP0l0nzXICfaJ4VB0GxNn4',//CouMarioGo
   'eX-dwDUmOEtpCpIeJDJgKg6kvZCkHj3xh5FrSzoJ_jvYJfX5i9Lb1rP7WQ', //Churumbe Es Payo
   'mLZY5DscD2QxR5ZZ85F7xdOovHJCo1e2yfrXttP4Adi-sJo',// El jose breton
-  'Ku8BbEpH0UtPvE3HpGt7iWn85ymicq9sAMRIfOnA99CjEPM'//Ukranian Egirl
+  'Ku8BbEpH0UtPvE3HpGt7iWn85ymicq9sAMRIfOnA99CjEPM',//Ukranian Egirl
+  'r7_rAYCkmjkFp8UQoprpoRFZ-6MkMN66W_-WzQxk16-hynqb',//xMyerino
+  'aai70MN1ZdizMS_FGgkmYromNyhbxQy0XuF5DJgSePBew92H'//Phoenix Fury CMG
 ];
 
 // Valor por defecto para el orden
@@ -73,22 +75,9 @@ async function generarTabla(orden) {
     let contador = 1;
     participantesOrdenados.forEach(participante => {
       const fila = tablaParticipantes.insertRow();
-      if (participante.summonerName === "Nampa&nbspde&nbspMatola") {
+      if (participante.summonerName === "xMyerino") {
         fila.innerHTML =`
-        <td><a id="martin" href="https://www.youtube.com/shorts/bJ-dFVQBN9Q" target="_blank">${contador++}. ${participante.summonerName}</a></td>
-        <td><img src="img/usuario/${participante.summonerName}.png" style="width: 30px; height: 30px;"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="img/posicion/${participante.summonerName}.png" style="width: 30px; height: 30px;"/></td>
-        <td><img src="img/elo/${participante.tier}${participante.rank}.png" style="width: 30px; height: 30px;"/> ${participante.tier} ${participante.rank}</td>
-        <td><font>${participante.leaguePoints}</font> LP</td>
-        <td>${participante.wins + participante.losses}</td>
-        <td><font color="green">${participante.wins}</font></td>
-        <td><font color="red">${participante.losses}</font></td>
-        <td>${((participante.wins * 100) / (participante.wins + participante.losses)).toFixed(0)}%</td>
-        <td><a href="https://www.op.gg/summoners/euw/${participante.summonerName}" target="_blank">opgg</a></td>
-      `;
-      }if (participante.summonerName === "Biyín88"){
-        fila.innerHTML =`
-        <td><a id="martin" href="https://www.tiktok.com/@billkilgore_/video/7197052386479918342" target="_blank">${contador++}. ${participante.summonerName}</a></td>
-        <td><img src="img/usuario/${participante.summonerName}.png" style="width: 30px; height: 30px;"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="img/posicion/${participante.summonerName}.png" style="width: 30px; height: 30px;"/></td>
+        <td>${contador++}. ${participante.summonerName}</td>        <td><img src="img/usuario/${participante.summonerName}.gif" style="width: 30px; height: 30px;"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="img/posicion/${participante.summonerName}.png" style="width: 30px; height: 30px;"/></td>
         <td><img src="img/elo/${participante.tier}${participante.rank}.png" style="width: 30px; height: 30px;"/> ${participante.tier} ${participante.rank}</td>
         <td><font>${participante.leaguePoints}</font> LP</td>
         <td>${participante.wins + participante.losses}</td>
