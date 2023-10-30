@@ -5,8 +5,6 @@ const participantes = [
   '6Q7bSGyBnzlmIcuH10LXDbRLZ67PeOlLtJBvzHqDfWlUu8vca3cYSquWDA', //Seca Bragas
   'fnkaPuiCJiKnyoGuQusmTdkXGKhyvkEFVrpTJYoNaqKiWUg', //CØVΣS
   'huJR-495PKHeCeLcIqI9lT1Roy0VTwWWaWwAokVoSZX4YhdIWZjkU2oX7A', //ShineGang
-  'zlSMd_xkgn5G5vYi8SlY7HeHdtjaKWJZIknKfSeekWfIgl7iFZhRV_MpWA', //EvelynnToilet
-  'qc4bew51P1ueV29M6ZOnbl2AKcMdpexY3WG548HtbW-vS61w9WX0bUK6mg', //Riustickyley
   'ts5fc5Fr5xGKBY2uB8uVNxyMTfkiZ5DnsXxx_wlH5G7dusL2', //HΣXΔ
   'HI8RfshGatLnazB-uY5Ig6kv1ckDzKxd01GeY4CIQn4eluI',//xCrimOr
   'oSFJOrPOD1KjETJr06kvrFyqNg2AJb5btrwQ6n-eAcIDErBL',//Crimor
@@ -15,7 +13,10 @@ const participantes = [
   'mLZY5DscD2QxR5ZZ85F7xdOovHJCo1e2yfrXttP4Adi-sJo',// El jose breton
   'Ku8BbEpH0UtPvE3HpGt7iWn85ymicq9sAMRIfOnA99CjEPM',//Ukranian Egirl
   'r7_rAYCkmjkFp8UQoprpoRFZ-6MkMN66W_-WzQxk16-hynqb',//xMyerino
-  'aai70MN1ZdizMS_FGgkmYromNyhbxQy0XuF5DJgSePBew92H'//Phoenix Fury CMG
+  'aai70MN1ZdizMS_FGgkmYromNyhbxQy0XuF5DJgSePBew92H',//Phoenix Fury CMG
+  '4vgO-GH8PIv3yWFNsFRavovmgFwX9qTVMPEHX1-qmoBeseeK',//Rubsan1417
+  'u4bMiCqKDwapi7NW2iCM2eOZJZuyIA6IBEAa06zVKQfZDhR0',//Blvck Phoenix
+  'jq5V8fL_4GPmFXfPcvh16ey_1o7eYMWbiguiZEiiKI8EH8Q'//Small Pøx
 ];
 
 // Valor por defecto para el orden
