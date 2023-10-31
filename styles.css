@@ -4,10 +4,12 @@
   font-family: Semakin;
   src: url(img/fuente/Semakin.otf);
 }
+
 body {
   font-family: Semakin;
   color: #fff;
-  background: #222;
+  background-image: url('img/GORDO.png');
+  background-size: cover;
   text-rendering: optimizeLegibility;
 }
 
