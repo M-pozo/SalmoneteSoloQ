@@ -1,10 +1,9 @@
 // Array de participantes
 const participantes = [
   'z4tizn8FKl_bZHhg515w50lB8FJaw-v563thdvYUKaEY3nbbr-JaJ61o_g', //Camaron Es Payo
-  'F-5b6ZFPAPUQYI3WibmQhoZzv_l0WWxBK2c-LXXH4nvI0LiNTXG0ynVMGQ', //Nampa de Matola
+  'j5Yi_be29bfrpruFlPWt9YJDOTjtUv3KnFERLc0XARj-8zw', //winstars
   '6Q7bSGyBnzlmIcuH10LXDbRLZ67PeOlLtJBvzHqDfWlUu8vca3cYSquWDA', //Seca Bragas
   'fnkaPuiCJiKnyoGuQusmTdkXGKhyvkEFVrpTJYoNaqKiWUg', //CØVΣS
-  'huJR-495PKHeCeLcIqI9lT1Roy0VTwWWaWwAokVoSZX4YhdIWZjkU2oX7A', //ShineGang
   'ts5fc5Fr5xGKBY2uB8uVNxyMTfkiZ5DnsXxx_wlH5G7dusL2', //HΣXΔ
   'HI8RfshGatLnazB-uY5Ig6kv1ckDzKxd01GeY4CIQn4eluI',//xCrimOr
   'oSFJOrPOD1KjETJr06kvrFyqNg2AJb5btrwQ6n-eAcIDErBL',//Crimor
