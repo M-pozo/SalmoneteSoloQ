@@ -90,7 +90,7 @@ async function generarTabla(orden) {
         fila.innerHTML =`
         <td>${contador++}. ${participante.summonerName}</td>
         <td><img src="img/usuario/${participante.summonerName}.png" style="width: 30px; height: 30px;"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="img/posicion/${participante.summonerName}.png" style="width: 30px; height: 30px;"/></td>
-        <td><img src="img/elo/${participante.tier}${participante.rank}.png" style="width: 30px; height: 30px;"/>EMERALD I</td>
+        <td><img src="img/elo/${participante.tier}${participante.rank}.png" style="width: 30px; height: 30px;"/> EMERALD I</td>
         <td><font></font>3 LP</td>
         <td>${participante.wins + participante.losses}</td>
         <td><font color="green">${participante.wins}</font></td>
