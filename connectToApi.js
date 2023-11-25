@@ -72,6 +72,7 @@ async function generarTabla(orden) {
     // Agregar las filas a la tabla en el nuevo orden
     //https://www.tiktok.com/@billkilgore_/video/7197052386479918342
     //https://www.youtube.com/shorts/bJ-dFVQBN9Q
+    
     let contador = 1;
     participantesOrdenados.forEach(participante => {
       const fila = tablaParticipantes.insertRow();
@@ -85,18 +86,6 @@ async function generarTabla(orden) {
         <td><font color="green">${participante.wins}</font></td>
         <td><font color="red">${participante.losses}</font></td>
         <td>${((participante.wins * 100) / (participante.wins + participante.losses)).toFixed(0)}%</td>
-        <td><a href="https://www.op.gg/summoners/euw/${participante.summonerName}" target="_blank">opgg</a></td>
-      `;
-      }else if (participante.summonerName === "winstars"){
-        fila.innerHTML =`
-        <td>${contador++}. ${participante.summonerName}</td>
-        <td><img src="img/usuario/${participante.summonerName}.png" style="width: 30px; height: 30px;"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="img/posicion/${participante.summonerName}.png" style="width: 30px; height: 30px;"/></td>
-        <td><img src="img/elo/${participante.tier}${participante.rank}.png" style="width: 30px; height: 30px;"/> EMERALD I</td>
-        <td><font></font>3 LP</td>
-        <td>${participante.wins + participante.losses}</td>
-        <td><font color="green">${participante.wins}</font></td>
-        <td><font color="red">${participante.losses}</font></td>
-        <td>65%</td>
         <td><a href="https://www.op.gg/summoners/euw/${participante.summonerName}" target="_blank">opgg</a></td>
       `;
       }else if (participante.summonerName === "Small Pøx"){
