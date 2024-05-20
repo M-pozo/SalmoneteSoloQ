@@ -18,6 +18,25 @@ const participantes = [
   'jq5V8fL_4GPmFXfPcvh16ey_1o7eYMWbiguiZEiiKI8EH8Q'//Small Pøx
 ];
 
+const getNombre = {
+  'z4tizn8FKl_bZHhg515w50lB8FJaw-v563thdvYUKaEY3nbbr-JaJ61o_g': 'Camaron Es Payo',
+  'j5Yi_be29bfrpruFlPWt9YJDOTjtUv3KnFERLc0XARj-8zw': 'winstars',
+  '6Q7bSGyBnzlmIcuH10LXDbRLZ67PeOlLtJBvzHqDfWlUu8vca3cYSquWDA': 'Seca Bragas',
+  'fnkaPuiCJiKnyoGuQusmTdkXGKhyvkEFVrpTJYoNaqKiWUg': 'CØVΣS',
+  'ts5fc5Fr5xGKBY2uB8uVNxyMTfkiZ5DnsXxx_wlH5G7dusL2': 'HΣXΔ',
+  'HI8RfshGatLnazB-uY5Ig6kv1ckDzKxd01GeY4CIQn4eluI': 'xCrimOr',
+  'oSFJOrPOD1KjETJr06kvrFyqNg2AJb5btrwQ6n-eAcIDErBL': 'Crimor',
+  'BU3E8F7cR4LI30HYMBCn0-RKFeP0l0nzXICfaJ4VB0GxNn4': 'CouMarioGo',
+  'eX-dwDUmOEtpCpIeJDJgKg6kvZCkHj3xh5FrSzoJ_jvYJfX5i9Lb1rP7WQ': 'Churumbe Es Payo',
+  'mLZY5DscD2QxR5ZZ85F7xdOovHJCo1e2yfrXttP4Adi-sJo': 'El jose breton',
+  'Ku8BbEpH0UtPvE3HpGt7iWn85ymicq9sAMRIfOnA99CjEPM': 'Ukranian Egirl',
+  'r7_rAYCkmjkFp8UQoprpoRFZ-6MkMN66W_-WzQxk16-hynqb': 'xMyerino',
+  'aai70MN1ZdizMS_FGgkmYromNyhbxQy0XuF5DJgSePBew92H': 'Phoenix Fury CMG',
+  '4vgO-GH8PIv3yWFNsFRavovmgFwX9qTVMPEHX1-qmoBeseeK': 'Rubsan1417',
+  'u4bMiCqKDwapi7NW2iCM2eOZJZuyIA6IBEAa06zVKQfZDhR0': 'Blvck Phoenix',
+  'jq5V8fL_4GPmFXfPcvh16ey_1o7eYMWbiguiZEiiKI8EH8Q': 'Small Pøx'
+};
+
 // Valor por defecto para el orden
 let ordenSeleccionado = 'ascendente';
 
@@ -76,43 +95,17 @@ async function generarTabla(orden) {
     let contador = 1;
     participantesOrdenados.forEach(participante => {
       const fila = tablaParticipantes.insertRow();
-      if (participante.summonerName === "xMyerino") {
-        fila.innerHTML =`
-        <td>${contador++}. ${participante.summonerName}</td>
-        <td><img src="img/usuario/${participante.summonerName}.gif" style="width: 30px; height: 30px;"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="img/posicion/${participante.summonerName}.png" style="width: 30px; height: 30px;"/></td>
+      fila.innerHTML = `
+        <td>${contador++}. ${getNombre[participante.summonerId]}</td>
+        <td><img src="img/usuario/${getNombre[participante.summonerId]}.png" style="width: 30px; height: 30px;"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="img/posicion/${getNombre[participante.summonerId]}.png" style="width: 30px; height: 30px;"/></td>
         <td><img src="img/elo/${participante.tier}${participante.rank}.png" style="width: 30px; height: 30px;"/> ${participante.tier} ${participante.rank}</td>
         <td><font>${participante.leaguePoints}</font> LP</td>
         <td>${participante.wins + participante.losses}</td>
         <td><font color="green">${participante.wins}</font></td>
         <td><font color="red">${participante.losses}</font></td>
         <td>${((participante.wins * 100) / (participante.wins + participante.losses)).toFixed(0)}%</td>
-        <td><a href="https://www.op.gg/summoners/euw/${participante.summonerName}" target="_blank">opgg</a></td>
+        <td><a href="https://www.op.gg/summoners/euw/${getNombre[participante.summonerId]}" target="_blank">opgg</a></td>
       `;
-      }else if (participante.summonerName === "Small Pøx"){
-        fila.innerHTML =`
-        <td>${contador++}. ${participante.summonerName}</td>
-        <td><img src="img/usuario/${participante.summonerName}.webp" style="width: 30px; height: 30px;"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="img/posicion/${participante.summonerName}.png" style="width: 30px; height: 30px;"/></td>
-        <td><img src="img/elo/${participante.tier}${participante.rank}.png" style="width: 30px; height: 30px;"/> ${participante.tier} ${participante.rank}</td>
-        <td><font>${participante.leaguePoints}</font> LP</td>
-        <td>${participante.wins + participante.losses}</td>
-        <td><font color="green">${participante.wins}</font></td>
-        <td><font color="red">${participante.losses}</font></td>
-        <td>${((participante.wins * 100) / (participante.wins + participante.losses)).toFixed(0)}%</td>
-        <td><a href="https://www.op.gg/summoners/euw/${participante.summonerName}" target="_blank">opgg</a></td>
-      `;
-      }else{
-        fila.innerHTML =`
-        <td>${contador++}. ${participante.summonerName}</td>
-        <td><img src="img/usuario/${participante.summonerName}.png" style="width: 30px; height: 30px;"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="img/posicion/${participante.summonerName}.png" style="width: 30px; height: 30px;"/></td>
-        <td><img src="img/elo/${participante.tier}${participante.rank}.png" style="width: 30px; height: 30px;"/> ${participante.tier} ${participante.rank}</td>
-        <td><font>${participante.leaguePoints}</font> LP</td>
-        <td>${participante.wins + participante.losses}</td>
-        <td><font color="green">${participante.wins}</font></td>
-        <td><font color="red">${participante.losses}</font></td>
-        <td>${((participante.wins * 100) / (participante.wins + participante.losses)).toFixed(0)}%</td>
-        <td><a href="https://www.op.gg/summoners/euw/${participante.summonerName}" target="_blank">opgg</a></td>
-      `;
-      }
     });
   } catch (error) {
     console.log(error);
