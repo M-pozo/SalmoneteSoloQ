@@ -26,21 +26,34 @@
 
   <!-- Modal -->
   <div id="modal"
-    class="hidden fixed inset-0 backdrop-blur-md bg-black/50 flex items-center justify-center z-40">
-    <div class="bg-gray-800 p-6 rounded-xl w-80 shadow-xl">
-      <h2 class="text-xl mb-4">Registrar participante</h2>
+  class="hidden fixed inset-0 backdrop-blur-md bg-black/50 flex items-center justify-center z-40">
+  
+  <div class="bg-gray-800 p-6 rounded-xl w-80 shadow-xl">
+    <h2 class="text-xl mb-4">Registrar participante</h2>
 
-      <input id="name" placeholder="Nombre" class="w-full mb-2 p-2 rounded bg-gray-700">
-      <input id="tag" placeholder="Tag" class="w-full mb-2 p-2 rounded bg-gray-700">
+    <input id="name" placeholder="Nombre" class="w-full mb-2 p-2 rounded bg-gray-700">
+    <input id="tag" placeholder="Tag" class="w-full mb-2 p-2 rounded bg-gray-700">
+
+    <!-- Zona de arrastre -->
+    <div id="drop-zone"
+      class="w-full h-32 mb-4 flex items-center justify-center border-2 border-dashed border-gray-500 rounded-lg cursor-pointer hover:border-green-400 transition">
+      
+      <span id="drop-text" class="text-gray-400 text-sm text-center">
+        Arrastra una imagen aquí<br>o haz clic para seleccionar
+      </span>
+
       <input id="image" type="file" accept="image/png, image/jpeg"
-        class="w-full mb-4 p-2 rounded bg-gray-700">
-
-      <button id="register" class="w-full bg-green-600 hover:bg-green-700 p-2 rounded">
-        Registrar
-      </button>
+        class="hidden">
     </div>
+
+    <button id="register"
+      class="w-full bg-green-600 hover:bg-green-700 p-2 rounded">
+      Registrar
+    </button>
   </div>
+</div>
 
   <script src="app.js"></script>
+  <script src="interfaz.js"></script>
 </body>
 </html>
