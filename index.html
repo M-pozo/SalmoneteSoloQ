@@ -1,56 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <!--SalmonETAsoloQ-->
-  <title>SalmonETASoloQ</title>
-  <link rel="icon" href="mario.gif">
-  <link rel="stylesheet" type="text/css" href="styles.css">
+  <meta charset="UTF-8">
+  <title>Torneo LoL</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SalmonETArmy</title>
+  <!-- Favicon -->
+  <link rel="icon" type="image/gif" href="mario.gif">
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-  <header>
-    <h1>البوري الجيش</h1>
-    <h1>SalmoneteSoloQ</h1>
-    <nav id="contenedorOrden"></nav>
-  </header>
-  <main id="rgb">
-    <table id="tablaParticipantes">
-      <thead>
-        <tr>
-          <th>Participante</th>
-          <th>Posición</th>
-          <th>Rango</th>
-          <th>Puntos de Liga</th>
-          <th>Total de Partidas</th>
-          <th>Partidas Ganadas</th>
-          <th>Partidas Perdidas</th>
-          <th>WinRate</th>
-          <th>OPGG</th>
-        </tr>
-      </thead>
-      <tbody>
-      </tbody>
-    </table>
-  </main>
-  <footer>
-    <h1>SalmoneteArmy</h1>
-    <div id="imagenes">
-        <a href="https://www.tiktok.com/t/ZGJCoQXG3/" target="_blank">
-            <img id="twitch" src="img/redes/twitch.png" alt="instagram">
-        </a>
-        <a href="https://twitter.com/SalmoneteArmy" target="_blank">
-            <img id="twitter" src="img/redes/twitter.png" alt="twitter">
-        </a>
-        <a href="https://www.tiktok.com/@salmonetearmy" target="_blank">
-            <img id="tiktok" src="img/redes/tiktok.png" alt="tiktok">
-        </a>
-        <a href="https://www.youtube.com/watch?v=eDt_CKfzpD8" target="_blank">
-            <img id="youtube" src="img/redes/youtube.png" alt="youtube">
-        </a>  
+
+<body class="bg-gray-900 text-white flex flex-col items-center min-h-screen relative">
+
+  <!-- Botón de registro arriba a la derecha -->
+  <button id="openModal"
+    class="fixed top-4 right-4 bg-blue-600 hover:bg-blue-700 px-6 py-2 rounded-lg shadow-lg z-50">
+    Registrar
+  </button>
+
+  <!-- Título centrado -->
+  <h1 class="text-4xl font-bold mt-8 mb-6 text-center">SALMONETE</h1>
+
+  <!-- Contenedor de jugadores centrado -->
+  <div id="players" class="flex flex-col items-center gap-4 w-full max-w-md"></div>
+
+  <!-- Modal -->
+  <div id="modal"
+    class="hidden fixed inset-0 backdrop-blur-md bg-black/50 flex items-center justify-center z-40">
+    <div class="bg-gray-800 p-6 rounded-xl w-80 shadow-xl">
+      <h2 class="text-xl mb-4">Registrar participante</h2>
+
+      <input id="name" placeholder="Nombre" class="w-full mb-2 p-2 rounded bg-gray-700">
+      <input id="tag" placeholder="Tag" class="w-full mb-2 p-2 rounded bg-gray-700">
+      <input id="image" type="file" accept="image/png, image/jpeg"
+        class="w-full mb-4 p-2 rounded bg-gray-700">
+
+      <button id="register" class="w-full bg-green-600 hover:bg-green-700 p-2 rounded">
+        Registrar
+      </button>
     </div>
-</footer>
-  <script src="connectToApi.js"></script>
+  </div>
+
+  <script src="app.js"></script>
 </body>
 </html>
