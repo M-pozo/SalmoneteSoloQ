@@ -20,7 +20,13 @@
 
   <!-- Título centrado -->
   <h1 class="text-4xl font-bold mt-8 mb-6 text-center">SalmonETArmy</h1>
-
+  
+  <div class="flex gap-2 mb-4 justify-center">
+    <button id="filterNonMain" class="px-4 py-1 bg-gray-600 text-white rounded hover:bg-gray-500">Torneo</button>
+    <button id="filterMain" class="px-4 py-1 bg-gray-600 text-white rounded hover:bg-gray-500">Main</button>
+    <button id="filterAll" class="px-4 py-1 bg-gray-600 text-white rounded hover:bg-gray-500">Todos</button>
+  </div>
+  
   <!-- Contenedor de jugadores centrado -->
   <div id="players" class="flex flex-col gap-4 w-full max-w-3xl mx-auto"></div>
 
@@ -44,6 +50,16 @@
 
       <input id="image" type="file" accept="image/png, image/jpeg"
         class="hidden">
+    </div>
+
+    <!-- Toggle switch para cuenta main -->
+    <div class="flex items-center justify-between mb-4">
+      <span class="text-gray-300 text-sm">Cuenta Main</span>
+      <label class="relative inline-flex items-center cursor-pointer">
+        <input type="checkbox" id="isMain" class="sr-only peer">
+        <div class="w-12 h-6 bg-gray-500 rounded-full peer peer-checked:bg-green-600 transition-all"></div>
+        <div class="absolute left-0.5 top-0.5 w-5 h-5 bg-white rounded-full shadow-md peer-checked:translate-x-6 transition-transform"></div>
+      </label>
     </div>
 
     <button id="register"
