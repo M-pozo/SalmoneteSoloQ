@@ -184,7 +184,7 @@ function createCard(p, ranked, isTop = false, isLast = false) {
 }
 
 // 🔹 Cargar jugadores
-async function loadPlayers(filter = "all") {
+async function loadPlayers(filter = "main") {
   const apiKey = await getApiKey();
 
   // 🔹 Obtener todos
