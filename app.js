@@ -38,7 +38,7 @@ async function getApiKey() {
 // 🔹 Registrar
 document.getElementById("register").onclick = async () => {
   const name = document.getElementById("name").value;
-  const tag = document.getElementById("tag").value;
+  let tag = document.getElementById("tag").value.replace(/#/g, "");
   const file = document.getElementById("image").files[0];
   const isMain = document.getElementById("isMain").checked; // 🔹 aquí
 
