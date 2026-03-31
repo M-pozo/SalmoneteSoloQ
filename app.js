@@ -148,7 +148,7 @@ function createCard(p, ranked) {
               <img src="${rankImage}" class="w-6 h-6">
             </div>
 
-            <p class="text-sm text-gray-400">LP: ${lp}</p>
+            <p class="text-sm text-gray-400">${lp}LP</p>
           </div>
         </div>
 
@@ -159,7 +159,12 @@ function createCard(p, ranked) {
       </div>
 
       <div class="flex justify-between items-center mt-2">
-        <p class="text-sm text-gray-300">Wins: ${ranked?.wins || 0} | Losses: ${ranked?.losses || 0} | Winrate: ${winrate}%</p>
+        <p class="text-sm text-gray-300">
+          Wins: <span class="text-green-400">${ranked?.wins || 0}</span> |
+          Losses: <span class="text-red-400">${ranked?.losses || 0}</span> |
+          Total: ${(ranked?.wins || 0) + (ranked?.losses || 0)} |
+          Winrate: ${winrate}%
+        </p>
         <a href="${opggLink}" target="_blank" class="text-blue-400 text-sm hover:underline">OP.GG</a>
       </div>
 
