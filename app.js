@@ -151,7 +151,7 @@ function createCard(p, ranked, isTop = false, isLast = false) {
 
             <div>
               <h3 class="text-lg font-bold flex items-center gap-2">
-                ${p.name}#${p.tag.toUpperCase()}
+                ${p.name} #${p.tag.toUpperCase()}
                 ${isTop ? '<span class="text-yellow-400">👑</span>' : ''}
               </h3>
 
