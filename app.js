@@ -272,4 +272,17 @@ function calculateElo(ranked) {
   return (tier * 1000) + (rank * 100) + lp;
 }
 
+const registerBtn = document.getElementById("register");
+
+registerBtn.addEventListener("click", () => {
+  // Limpiar inputs
+  document.getElementById("name").value = "";
+  document.getElementById("tag").value = "";
+  document.getElementById("image").value = "";
+
+  // Resetear texto del drop zone
+  document.getElementById("drop-text").innerHTML =
+    "Arrastra una imagen aquí<br>o haz clic para seleccionar";
+});
+
 loadPlayers();
