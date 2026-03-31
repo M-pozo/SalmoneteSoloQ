@@ -4,6 +4,10 @@ const SUPABASE_KEY = "sb_publishable_1CEj7ZTXh5xFct5eyX_09A_jrMSqqUX";
 const RIOT_BASE = "https://europe.api.riotgames.com";
 const RIOT_PLAYERS = "https://euw1.api.riotgames.com";
 
+document.getElementById("filterAll").onclick = () => loadPlayers("all");
+document.getElementById("filterMain").onclick = () => loadPlayers("main");
+document.getElementById("filterNonMain").onclick = () => loadPlayers("nonMain");
+
 const modal = document.getElementById("modal");
 document.getElementById("openModal").onclick = () => {
   modal.classList.remove("hidden");
@@ -36,6 +40,7 @@ document.getElementById("register").onclick = async () => {
   const name = document.getElementById("name").value;
   const tag = document.getElementById("tag").value;
   const file = document.getElementById("image").files[0];
+  const isMain = document.getElementById("isMain").checked; // 🔹 aquí
 
   if (!file) {
     alert("Selecciona una imagen");
@@ -45,43 +50,28 @@ document.getElementById("register").onclick = async () => {
   try {
     const apiKey = await getApiKey();
 
-    // 🔹 1. Subir imagen
+    // Subir imagen
     const imageUrl = await uploadImage(file);
 
-    // 🔹 2. Obtener PUUID
+    // Obtener PUUID
     const riotRes = await fetch(
       `${RIOT_BASE}/riot/account/v1/accounts/by-riot-id/${name}/${tag}`,
       {
         headers: { "X-Riot-Token": apiKey }
       }
     );
-
     const riotData = await riotRes.json();
+    if (!riotData.puuid) return alert("Jugador no encontrado");
 
-    if (!riotData.puuid) {
-      alert("Jugador no encontrado");
-      return;
-    }
-
-    // 🔹 3. Verificar duplicado
+    // Verificar duplicado
     const check = await fetch(
       `${SUPABASE_URL}/rest/v1/Usuarios?puuid=eq.${riotData.puuid}`,
-      {
-        headers: {
-          apikey: SUPABASE_KEY,
-          Authorization: `Bearer ${SUPABASE_KEY}`
-        }
-      }
+      { headers: { apikey: SUPABASE_KEY, Authorization: `Bearer ${SUPABASE_KEY}` } }
     );
-
     const exists = await check.json();
+    if (exists.length > 0) return alert("Participante ya registrado");
 
-    if (exists.length > 0) {
-      alert("Participante ya registrado");
-      return;
-    }
-
-    // 🔹 4. Insertar en DB
+    // Insertar en DB incluyendo `main`
     await fetch(`${SUPABASE_URL}/rest/v1/Usuarios`, {
       method: "POST",
       headers: {
@@ -93,17 +83,19 @@ document.getElementById("register").onclick = async () => {
         puuid: riotData.puuid,
         name,
         tag,
-        image_url: imageUrl
+        image_url: imageUrl,
+        main: isMain // 🔹 aquí guardamos si es main
       })
     });
 
-    // ✅ Éxito
     alert("✅ Participante registrado correctamente");
 
-    // 🔹 limpiar formulario
+    // Limpiar formulario
     document.getElementById("name").value = "";
     document.getElementById("tag").value = "";
     document.getElementById("image").value = "";
+    document.getElementById("isMain").checked = false;
+    document.getElementById("drop-text").innerHTML = "Arrastra una imagen aquí<br>o haz clic para seleccionar";
 
     modal.classList.add("hidden");
 
@@ -151,7 +143,7 @@ function createCard(p, ranked, isTop = false, isLast = false) {
 
             <div>
               <h3 class="text-lg font-bold flex items-center gap-2">
-                ${p.name} #${p.tag.toUpperCase()}
+                ${p.name}#${p.tag.toUpperCase()}
                 ${isTop ? '<span class="text-yellow-400">👑</span>' : ''}
               </h3>
 
@@ -192,19 +184,20 @@ function createCard(p, ranked, isTop = false, isLast = false) {
 }
 
 // 🔹 Cargar jugadores
-async function loadPlayers() {
+async function loadPlayers(filter = "nonMain") {
   const apiKey = await getApiKey();
 
+  // 🔹 Obtener todos
   const res = await fetch(`${SUPABASE_URL}/rest/v1/Usuarios`, {
-    headers: {
-      apikey: SUPABASE_KEY,
-      Authorization: `Bearer ${SUPABASE_KEY}`
-    }
+    headers: { apikey: SUPABASE_KEY, Authorization: `Bearer ${SUPABASE_KEY}` }
   });
+  let players = await res.json();
 
-  const players = await res.json();
+  // 🔹 Aplicar filtro
+  if (filter === "main") players = players.filter(p => p.main);
+  if (filter === "nonMain") players = players.filter(p => !p.main);
+
   const container = document.getElementById("players");
-
   container.innerHTML = "<p>Cargando...</p>";
 
   let playersWithRank = [];
@@ -212,36 +205,26 @@ async function loadPlayers() {
   for (let p of players) {
     const rankRes = await fetch(
       `${RIOT_PLAYERS}/lol/league/v4/entries/by-puuid/${p.puuid}`,
-      {
-        headers: { "X-Riot-Token": apiKey }
-      }
+      { headers: { "X-Riot-Token": apiKey } }
     );
-
     const rankData = await rankRes.json();
     const ranked = rankData[0];
-
     const elo = calculateElo(ranked);
 
-    playersWithRank.push({
-      player: p,
-      ranked,
-      elo
-    });
+    playersWithRank.push({ player: p, ranked, elo });
   }
 
-  // 🔥 ORDENAR POR ELO DESC
+  // Ordenar por ELO
   playersWithRank.sort((a, b) => b.elo - a.elo);
 
-  // 🔹 render
+  // Render
   let html = "";
-
   for (let i = 0; i < playersWithRank.length; i++) {
-  const item = playersWithRank[i];
-  const isTop = i === 0;
-  const isLast = i === playersWithRank.length - 1;
-
-  html += createCard(item.player, item.ranked, isTop, isLast);
-}
+    const item = playersWithRank[i];
+    const isTop = i === 0;
+    const isLast = i === playersWithRank.length - 1;
+    html += createCard(item.player, item.ranked, isTop, isLast);
+  }
 
   container.innerHTML = html;
 }
