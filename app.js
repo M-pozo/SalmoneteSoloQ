@@ -116,7 +116,7 @@ document.getElementById("register").onclick = async () => {
 };
 
 // 🔹 Render card
-function createCard(p, ranked) {
+function createCard(p, ranked, isTop = false, isLast = false) {
   let winrate = 0;
   let lp = 0;
 
@@ -125,50 +125,69 @@ function createCard(p, ranked) {
     lp = ranked.leaguePoints || 0;
   }
 
-  // Definir ruta de imagen de rango
   let rankImage = ranked 
     ? `img/elo/${ranked.tier.toUpperCase()}${ranked.rank.toUpperCase()}.png`
     : "img/elo/unranked.png";
 
-  // Link OP.GG (EUW como ejemplo, cambia según región)
   const opggLink = `https://www.op.gg/summoners/euw/${encodeURIComponent(p.name)}-${encodeURIComponent(p.tag)}`;
 
+  // Borde dorado si es top
+  const topClass = isTop 
+    ? "border-2 border-yellow-400 shadow-lg shadow-yellow-500/30 bg-gradient-to-r from-yellow-500/10 to-transparent"
+    : "";
+
+  // Contenedor externo para borde arcoíris
+  const outerStart = isLast ? `<div class="rounded-xl p-[2px] bg-[linear-gradient(90deg,#e40303,#ff8c00,#ffed00,#008026,#24408e,#732982)]">` : "";
+  const outerEnd = isLast ? `</div>` : "";
+
+  const cardClass = `${topClass} bg-gray-800 rounded-xl shadow-lg w-full flex flex-col gap-3 p-4`;
+
   return `
-    <div class="bg-gray-800 rounded-xl p-4 shadow-lg w-full flex flex-col gap-2">
-      
-      <div class="flex items-center justify-between">
-        <div class="flex items-center gap-4">
-          <img src="${p.image_url}" class="w-16 h-16 rounded-lg">
+    ${outerStart}
+      <div class="${cardClass}">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-4">
+            <img src="${p.image_url}" class="w-16 h-16 rounded-lg object-cover">
 
-          <div>
-            <h3 class="text-lg font-bold">${p.name}#${p.tag.toUpperCase()}</h3>
+            <div>
+              <h3 class="text-lg font-bold flex items-center gap-2">
+                ${p.name}#${p.tag.toUpperCase()}
+                ${isTop ? '<span class="text-yellow-400">👑</span>' : ''}
+              </h3>
 
-            <div class="flex items-center gap-2">
-              <p class="text-sm text-gray-300">${ranked?.tier || "Unranked"} ${ranked?.rank || ""}</p>
-              <img src="${rankImage}" class="w-6 h-6">
+              <div class="flex items-center gap-2">
+                <p class="text-sm text-gray-300">
+                  ${ranked?.tier || "Unranked"} ${ranked?.rank || ""}
+                </p>
+                <img src="${rankImage}" class="w-6 h-6">
+              </div>
+
+              <p class="text-sm text-gray-400">${lp} LP</p>
             </div>
+          </div>
 
-            <p class="text-sm text-gray-400">${lp}LP</p>
+          <div class="flex gap-2 text-lg">
+            ${ranked?.hotStreak ? '🔥' : ''}
+            ${ranked?.freshBlood ? '🆕' : ''}
           </div>
         </div>
 
-        <div class="flex gap-2">
-          ${ranked?.hotStreak ? '<span class="text-red-400">🔥</span>' : ''}
-          ${ranked?.freshBlood ? '<span class="text-green-400">🆕</span>' : ''}
+        <div class="flex justify-between items-center mt-2 text-sm">
+          <div class="flex gap-4 flex-wrap">
+            <span class="text-green-400 font-semibold">${ranked?.wins || 0}W</span>
+            <span class="text-red-400 font-semibold">${ranked?.losses || 0}L</span>
+            <span class="text-gray-300">
+              ${(ranked?.wins || 0) + (ranked?.losses || 0)} games
+            </span>
+            <span class="text-blue-400 font-semibold">${winrate}%</span>
+          </div>
+
+          <a href="${opggLink}" target="_blank" class="text-blue-400 hover:underline">
+            OP.GG
+          </a>
         </div>
       </div>
-
-      <div class="flex justify-between items-center mt-2">
-        <p class="text-sm text-gray-300">
-          Wins: <span class="text-green-400">${ranked?.wins || 0}</span> |
-          Losses: <span class="text-red-400">${ranked?.losses || 0}</span> |
-          Total: ${(ranked?.wins || 0) + (ranked?.losses || 0)} |
-          Winrate: ${winrate}%
-        </p>
-        <a href="${opggLink}" target="_blank" class="text-blue-400 text-sm hover:underline">OP.GG</a>
-      </div>
-
-    </div>
+    ${outerEnd}
   `;
 }
 
@@ -216,9 +235,13 @@ async function loadPlayers() {
   // 🔹 render
   let html = "";
 
-  for (let item of playersWithRank) {
-    html += createCard(item.player, item.ranked);
-  }
+  for (let i = 0; i < playersWithRank.length; i++) {
+  const item = playersWithRank[i];
+  const isTop = i === 0;
+  const isLast = i === playersWithRank.length - 1;
+
+  html += createCard(item.player, item.ranked, isTop, isLast);
+}
 
   container.innerHTML = html;
 }
