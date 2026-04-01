@@ -139,7 +139,11 @@ function createCard(p, ranked, isTop = false, isLast = false) {
       <div class="${cardClass}">
         <div class="flex items-center justify-between">
           <div class="flex items-center gap-4">
-            <img src="${p.image_url}" class="w-16 h-16 rounded-lg object-cover">
+            <img 
+              src="${p.image_url}" 
+              class="w-16 h-16 rounded-lg object-cover cursor-pointer player-img"
+              data-img="${p.image_url}"
+            >
 
             <div>
               <h3 class="text-lg font-bold flex items-center gap-2">
@@ -294,6 +298,24 @@ registerBtn.addEventListener("click", () => {
   // Resetear texto del drop zone
   document.getElementById("drop-text").innerHTML =
     "Arrastra una imagen aquí<br>o haz clic para seleccionar";
+});
+
+const modal3 = document.getElementById("imageModal");
+const modalImg = document.getElementById("modalImg");
+
+// Abrir modal (delegación de eventos)
+document.addEventListener("click", (e) => {
+  if (e.target.classList.contains("player-img")) {
+    modalImg.src = e.target.dataset.img;
+    modal3.classList.remove("hidden");
+    modal3.classList.add("flex");
+  }
+});
+
+// Cerrar modal al hacer click fuera
+modal3.addEventListener("click", () => {
+  modal3.classList.add("hidden");
+  modal3.classList.remove("flex");
 });
 
 loadPlayers();
