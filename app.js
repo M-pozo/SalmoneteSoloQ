@@ -191,10 +191,14 @@ function createCard(p, ranked, isTop = false, isLast = false) {
 async function loadPlayers(filter = "main") {
   const apiKey = await getApiKey();
 
-  // 🔹 Obtener todos
+  // 🔹 Obtener todos los jugadores
   const res = await fetch(`${SUPABASE_URL}/rest/v1/Usuarios`, {
-    headers: { apikey: SUPABASE_KEY, Authorization: `Bearer ${SUPABASE_KEY}` }
+    headers: {
+      apikey: SUPABASE_KEY,
+      Authorization: `Bearer ${SUPABASE_KEY}`
+    }
   });
+
   let players = await res.json();
 
   // 🔹 Aplicar filtro
@@ -207,26 +211,49 @@ async function loadPlayers(filter = "main") {
   let playersWithRank = [];
 
   for (let p of players) {
-    const rankRes = await fetch(
-      `${RIOT_PLAYERS}/lol/league/v4/entries/by-puuid/${p.puuid}`,
-      { headers: { "X-Riot-Token": apiKey } }
-    );
-    const rankData = await rankRes.json();
-    const ranked = rankData[0];
-    const elo = calculateElo(ranked);
+    try {
+      const rankRes = await fetch(
+        `${RIOT_PLAYERS}/lol/league/v4/entries/by-puuid/${p.puuid}`,
+        { headers: { "X-Riot-Token": apiKey } }
+      );
 
-    playersWithRank.push({ player: p, ranked, elo });
+      const rankData = await rankRes.json();
+
+      // ✅ SOLO SoloQ
+      const ranked = rankData.find(q => q.queueType === "RANKED_SOLO_5x5");
+
+      // ✅ Si no tiene rank, evitar errores
+      const elo = ranked ? calculateElo(ranked) : 0;
+
+      playersWithRank.push({
+        player: p,
+        ranked: ranked || null,
+        elo
+      });
+
+    } catch (err) {
+      console.error("Error cargando jugador:", p.name, err);
+
+      // fallback por si falla la API
+      playersWithRank.push({
+        player: p,
+        ranked: null,
+        elo: 0
+      });
+    }
   }
 
-  // Ordenar por ELO
+  // 🔹 Ordenar por ELO
   playersWithRank.sort((a, b) => b.elo - a.elo);
 
-  // Render
+  // 🔹 Render
   let html = "";
+
   for (let i = 0; i < playersWithRank.length; i++) {
     const item = playersWithRank[i];
     const isTop = i === 0;
     const isLast = i === playersWithRank.length - 1;
+
     html += createCard(item.player, item.ranked, isTop, isLast);
   }
 
